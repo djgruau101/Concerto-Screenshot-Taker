@@ -40,6 +40,7 @@ tmp_screenshot = None
 
 
 def mse(imageA, imageB):
+	'''Metric that evaluates the similarity between imageA and imageB. The lower the value, the more similar the images are.'''
 	err = np.sum((imageA.astype("float") - imageB.astype("float")) ** 2)
 	err /= float(imageA.shape[0] * imageA.shape[1])
 	return err
