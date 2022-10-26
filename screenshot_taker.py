@@ -7,6 +7,7 @@ import time
 import os
 import sys
 
+MIN_DIFF_MSE = 100
 forbidden_chars_dir = '\/:*?"<>|'
 dir_made = False
 url = ""
@@ -111,7 +112,7 @@ while capture <= video_length:
     image = cv2.cvtColor(np.array(image), cv2.COLOR_BGR2GRAY)
     if tmp_screenshot is None:
         tmp_screenshot = image
-    if mse(image, tmp_screenshot) > 100:  # we have changed part
+    if mse(image, tmp_screenshot) > MIN_DIFF_MSE:  # we have changed part
         tmp_screenshot = image
         if not dir_made:
             if not os.path.isdir(destination):
