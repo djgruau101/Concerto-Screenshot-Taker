@@ -99,8 +99,6 @@ def remove_padding(img):
     else:
         im_list, index3, index4 = crop_sides(im_list)
     if index2 != 0 and index4 != 0:
-        # if img[index1: index2, index3: index4] is not None:
-        #     print(index1, index2, index3, index4)
         return img[index1: index2, index3: index4]
 
 
